@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Not So Dark Crystal</title>
 </head>
+	<link rel='stylesheet' type='text/css' href='css/style.css'>
 <body>
+<h1>Crystal Collector!
+</h1>
+
+<div>
+	<h2>Directions:</h2>
+
+		<p>You will be given a random number at the start of the game.
+		</p>
+		<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+		</p>
+		<p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.
+		</p>
+		<p>The value of each crystal is hidden from you until you click on it.
+		</p>
+		<p>Each time the game starts the game will change the value of each crystal.
+		</p>
+</div>
+
+<div class = 'gameBox'>
+	<div id = goal class = 'randomBox'>Target Number:
+	</div>
+
+	<div id = results class = 'resultsBox'>
+	</div>
+
+	<div>
+		<img class='crystals' src="images/crystal1.jpg" alt="crystal 1">
+		<img class='crystals' src="images/crystal2.jpg" alt="crystal 2">
+		<img class='crystals' class='crystals' src="images/crystal3.jpg" alt="crystal 3">
+		<img class='crystals' src="images/crystal4.jpg" alt="crystal 4">
+	</div>
+
+	<div class = 'yourBox'> your score
+	</div>
+</div>
+
+<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+<script src='javascript/game.js'></script>
 
 </body>
 </html>
