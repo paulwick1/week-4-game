@@ -40,6 +40,8 @@
 	background: lightgreen;
 	margin: 4px;
 	float: left;
+	font-size: 30px;
+	text-align: center;
 }
 
 .resultsBox {
