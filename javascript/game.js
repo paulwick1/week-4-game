@@ -69,8 +69,9 @@ function gamePlay() {
             document.getElementById("goal").innerHTML="Target Number: " + randomNumber;
             };
         if (score > randomNumber) {
-            alert("You Lose!");
             losses = losses + 1;
+            alert("You Lose!");
+            score = 0;
             document.getElementById("results").innerHTML=
             "<p>Wins: " + wins + "</p>" +
             "<p>Losses: " + losses + "</p>";
