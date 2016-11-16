@@ -1,4 +1,4 @@
-var randomNumber = 0;
+var randomNumber;
 var wins = 0;
 var losses = 0;
 var crystalNumbers = [];
@@ -17,7 +17,7 @@ while(crystalNumbers.length < 4){
     if(crystalNumbers.indexOf(randomnumber) > -1) continue;
     crystalNumbers[crystalNumbers.length] = randomnumber;
 }
-alert(crystalNumbers);
+// alert(crystalNumbers);
 
 //adds the results to the html
 document.getElementById("results").innerHTML=
@@ -36,23 +36,51 @@ function gamePlay() {
 
 	//adds to the score depending on crystal clicked
 	$('#crystal1').click(function() {
-    	guesses.push(crystalNumbers[0]);
+        score = score + crystalNumbers[0];
  	});
+
  	$('#crystal2').click(function() {
-    	guesses.push(crystalNumbers[1]);
+        score = score + crystalNumbers[1];
  	});
+
  	$('#crystal3').click(function() {
-    	guesses.push(crystalNumbers[2]);
+        score = score + crystalNumbers[2];
  	});
+
  	$('#crystal4').click(function() {
-    	guesses.push(crystalNumbers[3]);
- 	});
+        score = score + crystalNumbers[3];
+    });   
 
- 	//reports the score
- 	document.getElementById('yourScore').innerHTML=
-	"<p>Your Score: " + score + "</p>";
+    $('.crystals').click(function() {
+        
+        document.getElementById('yourScore').innerHTML=
+        "<p>Your Score: " + score + "</p>";
+    
+        if (randomNumber == score) {
+            wins = wins + 1;
+            alert("Correct!");
+            score = 0;
+            document.getElementById("results").innerHTML=
+            "<p>Wins: " + wins + "</p>" +
+            "<p>Losses: " + losses + "</p>";
+            document.getElementById('yourScore').innerHTML=
+            "<p>Your Score: " + 0 + "</p>";
+            randomNumber = Math.ceil(Math.random() * (120 - 42 + 1)) + 42;
+            document.getElementById("goal").innerHTML="Target Number: " + randomNumber;
+            };
+        if (score > randomNumber) {
+            alert("You Lose!");
+            losses = losses + 1;
+            document.getElementById("results").innerHTML=
+            "<p>Wins: " + wins + "</p>" +
+            "<p>Losses: " + losses + "</p>";
+            document.getElementById('yourScore').innerHTML=
+            "<p>Your Score: " + 0 + "</p>";
+            randomNumber = Math.ceil(Math.random() * (120 - 42 + 1)) + 42;
+            document.getElementById("goal").innerHTML="Target Number: " + randomNumber;
+            };
+    });
 
-}
+};
 
-$(document).ready(gamePlay);
-
+$(document).ready(gamePlay); 
